@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class Runner implements CommandLineRunner {
 
@@ -30,7 +32,7 @@ public class Runner implements CommandLineRunner {
 
         Edificio edificio1 = new Edificio();
         edificio1.setNome("Isola C4");
-        edificio1.setCitta("Napoli");
+        edificio1.setCitta("Roma");
         edificio1.setIndirizzo("Centro Direzionale");
 
         edificioService.salvaEdificio(edificio1);
@@ -42,8 +44,8 @@ public class Runner implements CommandLineRunner {
         utenteService.salvaUtente(utente1);
 
         Postazione postazione1 = new Postazione();
-        postazione1.setTipo(TipoPostazione.PRIVATO);
-        postazione1.setDescrizione("80mq, Idromassaggio e Sauna");
+        postazione1.setTipo(TipoPostazione.OPENSPACE);
+        postazione1.setDescrizione("880mq, Idromassaggio e Sauna");
         postazione1.setNumeroMassimoOccupanti(10);
         postazione1.setEdificio(edificio1);
 
@@ -55,6 +57,10 @@ public class Runner implements CommandLineRunner {
         postazioneService.salvaPostazione(postazione1);
         prenotazioneService.salvaPrenotazione(prenotazione1);
 
-        logger.info(utente1.toString());
+        List<Postazione> postazioni = postazioneService.ricercaPostazioni(TipoPostazione.OPENSPACE,"Roma");
+
+       postazioni.stream().forEach(System.out::println);
+
+
     }
 }

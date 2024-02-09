@@ -1,9 +1,12 @@
 package com.example.Gestione_Prenotazioni.service;
 
 import com.example.Gestione_Prenotazioni.entity.Postazione;
+import com.example.Gestione_Prenotazioni.entity.TipoPostazione;
 import com.example.Gestione_Prenotazioni.repository.PostazioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PostazioneService {
@@ -29,5 +32,8 @@ public class PostazioneService {
 
     public void cancellaPostazione(int id){
         postazioneRepository.deleteById(id);
+    }
+    public List<Postazione> ricercaPostazioni(TipoPostazione tipo, String citta) {
+        return postazioneRepository.findByTipoAndEdificio_Citta(tipo, citta);
     }
 }

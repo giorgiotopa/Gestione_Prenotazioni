@@ -5,6 +5,8 @@ import com.example.Gestione_Prenotazioni.repository.PrenotazioneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PrenotazioneService {
     @Autowired
@@ -21,7 +23,6 @@ public class PrenotazioneService {
         i.setUtente(prenotazione.getUtente());
         prenotazioneRepository.save(i);
     }
-
     public Prenotazione cercaPrenotazionePerId(int id){
         return prenotazioneRepository.findById(id).get();
     }
@@ -29,4 +30,6 @@ public class PrenotazioneService {
     public void cancellaPrenotazione(int id){
         prenotazioneRepository.deleteById(id);
     }
+
+
 }

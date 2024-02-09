@@ -40,4 +40,13 @@ public class Prenotazione {
             logger.info("La postazione è già prenotata");
         }
     }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" +
+                "id=" + id +
+                ", dataPrenotazione=" + dataPrenotazione +
+                ", scadenzaPrenotazione=" + scadenzaPrenotazione +
+                '}';
+    }
 }

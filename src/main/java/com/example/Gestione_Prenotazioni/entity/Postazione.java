@@ -30,4 +30,15 @@ public class Postazione {
     public Postazione() {
         this.stato = StatoPostazione.LIBERA;
     }
+
+    @Override
+    public String toString() {
+        return "Postazione{" +
+                "id=" + id +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipo=" + tipo +
+                ", numeroMassimoOccupanti=" + numeroMassimoOccupanti +
+                ", stato=" + stato +
+                '}';
+    }
 }
