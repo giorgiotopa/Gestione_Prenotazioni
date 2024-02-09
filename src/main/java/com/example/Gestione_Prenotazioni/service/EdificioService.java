@@ -13,7 +13,6 @@ public class EdificioService {
     public void salvaEdificio(Edificio edificio) {
         edificioRepository.save(edificio);
     }
-
     public void aggiornaEdificio(Edificio edificio){
         Edificio i = edificioRepository.findById(edificio.getId()).get();
         i.setNome(edificio.getNome());
@@ -21,7 +20,6 @@ public class EdificioService {
         i.setCitta(edificio.getCitta());
         edificioRepository.save(i);
     }
-
     public Edificio cercaEdificioPerId(int id){
         return edificioRepository.findById(id).get();
     }

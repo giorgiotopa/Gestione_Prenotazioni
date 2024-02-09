@@ -13,10 +13,13 @@ public class Postazione {
     private int id;
 
     private String descrizione;
+
     @Enumerated(EnumType.STRING)
     private TipoPostazione tipo;
+
     @Column(name = "numero_massimo_occupanti")
     private int numeroMassimoOccupanti;
+
     @Enumerated(EnumType.STRING)
     private StatoPostazione stato;
 

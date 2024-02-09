@@ -14,8 +14,11 @@ public class Edificio {
     private int id;
 
     private String nome;
+
     private String indirizzo;
+
     private String citta;
+
     @OneToMany(mappedBy = "edificio")
     private List<Postazione> postazioni;
 

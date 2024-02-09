@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 public class Prenotazione {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -24,8 +25,10 @@ public class Prenotazione {
 
     @Column(name = "data_prenotazione")
     private LocalDate dataPrenotazione;
+
     @Column(name = "scadenza_prenotazione")
     private LocalDate scadenzaPrenotazione;
+
     @Transient
     private Logger logger = LoggerFactory.getLogger("Gestione_Prenotazioni");
 

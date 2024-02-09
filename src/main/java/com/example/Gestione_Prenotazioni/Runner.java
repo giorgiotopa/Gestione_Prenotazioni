@@ -35,13 +35,17 @@ public class Runner implements CommandLineRunner {
         edificio1.setCitta("Roma");
         edificio1.setIndirizzo("Centro Direzionale");
 
+        logger.info(edificio1.toString());
         edificioService.salvaEdificio(edificio1);
+
 
         Utente utente1 = new Utente();
         utente1.setNomeCompleto("Marco Mormile");
         utente1.setEmail("elenamormile@mail.com");
 
+        logger.info(utente1.toString());
         utenteService.salvaUtente(utente1);
+
 
         Postazione postazione1 = new Postazione();
         postazione1.setTipo(TipoPostazione.OPENSPACE);
@@ -49,17 +53,16 @@ public class Runner implements CommandLineRunner {
         postazione1.setNumeroMassimoOccupanti(10);
         postazione1.setEdificio(edificio1);
 
-
-
         Prenotazione prenotazione1 = new Prenotazione(postazione1, utente1);
 
-
+        logger.info(prenotazione1.toString());
         postazioneService.salvaPostazione(postazione1);
         prenotazioneService.salvaPrenotazione(prenotazione1);
 
+
         List<Postazione> postazioni = postazioneService.ricercaPostazioni(TipoPostazione.OPENSPACE,"Roma");
 
-       postazioni.stream().forEach(System.out::println);
+        postazioni.stream().forEach(System.out::println);
 
 
     }
